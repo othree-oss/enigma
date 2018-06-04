@@ -1,0 +1,22 @@
+plugins {
+    id "com.adtran.scala-multiversion-plugin" version "1.0.30"
+}
+
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group='io.othree'
+archivesBaseName='enigma'
+version = '1.0'
+
+apply from: 'publish.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:%scala-version%"
+    testCompile(group: 'io.othree', name: 'a-ok_%%', version: "1.+")
+}
